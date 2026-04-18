@@ -1,48 +1,413 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>USO DE ENLACES RELATIVOS CURSO DE PROGRAMACIÓN WEB  - UTEA 2026</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KaLMA | Centro de Masajes y Terapia</title>
+  <meta
+    name="description"
+    content="KaLMA Centro de Masajes y Terapia: bienestar integral con masajes antiestrés, terapéuticos y tratamientos especializados."
+  />
+  <style>
+    :root {
+      --kalma-cyan: #27d8dc;
+      --kalma-cyan-dark: #129ea2;
+      --kalma-pink: #ec0f9b;
+      --kalma-violet: #9a1ea8;
+      --kalma-deep: #093742;
+      --kalma-soft: #f6feff;
+      --text: #18343a;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(39, 216, 220, 0.15), transparent 38%),
+        radial-gradient(circle at 85% 20%, rgba(236, 15, 155, 0.16), transparent 42%),
+        linear-gradient(180deg, #ffffff 0%, #ecfdff 55%, #ffffff 100%);
+      line-height: 1.5;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    .hero {
+      min-height: 85vh;
+      display: grid;
+      place-items: center;
+      padding: 2.5rem 0 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      z-index: -1;
+      filter: blur(4px);
+    }
+
+    .hero::before {
+      width: 420px;
+      height: 420px;
+      background: rgba(39, 216, 220, 0.2);
+      top: -100px;
+      left: -80px;
+    }
+
+    .hero::after {
+      width: 500px;
+      height: 500px;
+      background: rgba(236, 15, 155, 0.16);
+      right: -180px;
+      bottom: -160px;
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.72);
+      border: 2px solid rgba(39, 216, 220, 0.3);
+      border-radius: 28px;
+      backdrop-filter: blur(7px);
+      box-shadow: 0 24px 50px rgba(6, 57, 65, 0.13);
+      padding: clamp(1.5rem, 3vw, 2.5rem);
+      display: grid;
+      gap: 1rem;
+      text-align: center;
+    }
+
+    .logo-badge {
+      border: 3px solid var(--kalma-cyan);
+      border-radius: 999px;
+      padding: 1.2rem 1rem;
+      width: min(580px, 100%);
+      margin-inline: auto;
+      background: linear-gradient(90deg, rgba(236, 15, 155, 0.07), rgba(39, 216, 220, 0.1));
+    }
+
+    .lotus {
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--kalma-violet);
+      letter-spacing: 0.2rem;
+    }
+
+    .brand {
+      font-size: clamp(2.2rem, 8vw, 5rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: 0.1rem;
+      margin-top: 0.2rem;
+      background: linear-gradient(90deg, var(--kalma-pink), var(--kalma-cyan-dark));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .tag {
+      margin-top: 0.35rem;
+      color: var(--kalma-violet);
+      font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+      font-weight: 700;
+    }
+
+    .slogan {
+      color: var(--kalma-cyan-dark);
+      font-size: clamp(1rem, 2vw, 1.35rem);
+      font-style: italic;
+      font-weight: 600;
+    }
+
+    .hero h1 {
+      color: var(--kalma-deep);
+      font-size: clamp(1.3rem, 3vw, 2.1rem);
+      margin-top: 0.35rem;
+    }
+
+    .hero p {
+      max-width: 70ch;
+      margin-inline: auto;
+      font-size: 1.03rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      justify-content: center;
+      margin-top: 0.7rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem 1.35rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      min-width: 190px;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-primary {
+      color: #fff;
+      background: linear-gradient(90deg, var(--kalma-pink), #ff57b9);
+    }
+
+    .btn-secondary {
+      color: #003b45;
+      background: linear-gradient(90deg, #a7f8fa, #66f2f6);
+    }
+
+    section {
+      padding: 4.5rem 0;
+    }
+
+    .section-title {
+      font-size: clamp(1.7rem, 4vw, 2.8rem);
+      color: var(--kalma-deep);
+      margin-bottom: 0.6rem;
+      text-align: center;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 2rem;
+      color: #35545a;
+    }
+
+    .services-wrap {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1.3rem;
+      align-items: stretch;
+    }
+
+    .panel {
+      background: #ffffff;
+      border: 1px solid #d5f7f8;
+      border-radius: 22px;
+      box-shadow: 0 14px 26px rgba(5, 59, 66, 0.08);
+      padding: 1.2rem 1.2rem 1.3rem;
+    }
+
+    .service-list {
+      list-style: none;
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.6rem;
+    }
+
+    .service-list li {
+      background: var(--kalma-soft);
+      border-left: 6px solid var(--kalma-cyan);
+      border-radius: 12px;
+      padding: 0.75rem 0.9rem;
+      font-weight: 600;
+      color: #113c44;
+    }
+
+    .highlights {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .highlight-card {
+      border-radius: 14px;
+      padding: 0.95rem;
+      color: #fff;
+      background: linear-gradient(135deg, var(--kalma-cyan-dark), var(--kalma-cyan));
+    }
+
+    .highlight-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .highlight-card p {
+      font-size: 0.94rem;
+      opacity: 0.95;
+    }
+
+    .contact {
+      background: linear-gradient(135deg, rgba(39, 216, 220, 0.08), rgba(236, 15, 155, 0.1));
+      border-top: 2px solid rgba(39, 216, 220, 0.35);
+      border-bottom: 2px solid rgba(236, 15, 155, 0.25);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+
+    .contact-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 1.4rem;
+      box-shadow: 0 14px 30px rgba(17, 65, 72, 0.1);
+    }
+
+    .contact-card h3 {
+      color: var(--kalma-violet);
+      margin-bottom: 0.6rem;
+    }
+
+    .info-list {
+      list-style: none;
+      display: grid;
+      gap: 0.55rem;
+      font-weight: 600;
+    }
+
+    .hours {
+      display: grid;
+      gap: 0.5rem;
+      margin-top: 0.8rem;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.1rem;
+      color: #4a6d74;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 900px) {
+      .services-wrap,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 3.4rem 0;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1 id="titulo1">BIENVENIDOS A LA PAGINA WEB</h1>
-    </header>
-<nav>
-    <ul>
-        <li><a href="#titulo1">IR AL TITULO PRINCIPAL</a></li>
-        <li><a href="#seccion">IR A LA SECCIÓN</a></li>
-        <li><a href="#seccion2">IR A LA SECCIÓN DE CONTACTO</a></li>
-    </ul>
-</nav>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<section id="seccion">
-    <h2>Nosotros</h2>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis natus assumenda id voluptatem fugiat harum amet unde excepturi laborum? Quasi eos amet voluptas nesciunt rerum, quam voluptatem provident accusamus totam.</p>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis natus assumenda id voluptatem fugiat harum amet unde excepturi laborum? Quasi eos amet voluptas nesciunt rerum, quam voluptatem provident accusamus totam.</p>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis natus assumenda id voluptatem fugiat harum amet unde excepturi laborum? Quasi eos amet voluptas nesciunt rerum, quam voluptatem provident accusamus totam.</p>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis natus assumenda id voluptatem fugiat harum amet unde excepturi laborum? Quasi eos amet voluptas nesciunt rerum, quam voluptatem provident accusamus totam.</p>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis natus assumenda id voluptatem fugiat harum amet unde excepturi laborum? Quasi eos amet voluptas nesciunt rerum, quam voluptatem provident accusamus totam.</p>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis natus assumenda id voluptatem fugiat harum amet unde excepturi laborum? Quasi eos amet voluptas nesciunt rerum, quam voluptatem provident accusamus totam.</p>
-    
-</section>
+  <header class="hero">
+    <div class="container hero-card">
+      <div class="logo-badge" aria-label="Logo de KaLMA">
+        <p class="lotus">✿</p>
+        <p class="brand">KaLMA</p>
+        <p class="tag">Centro de Masajes y Terapia</p>
+        <p class="slogan">Encuentra tu equilibrio, vive armonía.</p>
+      </div>
+      <h1>Bienestar profundo, alivio real y renovación total para tu cuerpo y mente.</h1>
+      <p>
+        En KaLMA combinamos técnicas terapéuticas profesionales con una experiencia sensorial
+        relajante para que recuperes energía, reduzcas el estrés y mejores tu calidad de vida.
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#servicios">Ver servicios</a>
+        <a class="btn btn-secondary" href="https://wa.me/51974300132" target="_blank" rel="noopener noreferrer">Reservar por WhatsApp</a>
+      </div>
+    </div>
+  </header>
 
+  <main>
+    <section id="servicios" class="container">
+      <h2 class="section-title">Nuestros Servicios</h2>
+      <p class="section-subtitle">
+        Tratamientos diseñados para aliviar tensiones, mejorar la movilidad y ayudarte a recuperar tu
+        equilibrio físico y emocional.
+      </p>
 
-<section id="seccion2"> 
-    <h2>Contacto</h2>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis natus assumenda id voluptatem fugiat harum amet unde excepturi laborum? Quasi eos amet voluptas nesciunt rerum, quam voluptatem provident accusamus totam.</p>
-</section>
+      <div class="services-wrap">
+        <article class="panel">
+          <ul class="service-list">
+            <li>Masaje Antiestrés</li>
+            <li>Masaje Relajante</li>
+            <li>Masaje Descontracturante</li>
+            <li>Masaje Terapéutico</li>
+            <li>Drenaje Linfático Manual</li>
+            <li>Masaje Postparto</li>
+            <li>Terapia para Lesión Deportiva</li>
+            <li>Reflexología</li>
+            <li>Masaje Facial</li>
+            <li>Masajes de Lumbalgia y Dorsal</li>
+            <li>Masajes de Cervical y Escoliosis</li>
+            <li>Terapia con Compresas Calientes y Frías</li>
+            <li>Terapia de Parálisis Facial</li>
+            <li>Terapia de Artrosis</li>
+          </ul>
+        </article>
 
+        <aside class="highlights">
+          <div class="highlight-card">
+            <h3>Atención personalizada</h3>
+            <p>Evaluamos tu necesidad para aplicar la técnica terapéutica más efectiva en cada sesión.</p>
+          </div>
+          <div class="highlight-card">
+            <h3>Ambiente armonioso</h3>
+            <p>Espacios pensados para desconectarte, relajarte y sentir bienestar desde que llegas.</p>
+          </div>
+          <div class="highlight-card">
+            <h3>Terapias integrales</h3>
+            <p>Combinamos alivio muscular, recuperación física y relajación profunda en una experiencia única.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
 
+    <section class="contact" id="contacto">
+      <div class="container">
+        <h2 class="section-title">Reserva tu cita</h2>
+        <p class="section-subtitle">Estamos listos para ayudarte a sentirte mejor hoy mismo.</p>
 
+        <div class="contact-grid">
+          <article class="contact-card">
+            <h3>Información de contacto</h3>
+            <ul class="info-list">
+              <li>📍 Av. Venezuela, segundo piso Galería Comercial 20 de Abril</li>
+              <li>📌 Referencia: frente al Mercado Las Américas</li>
+              <li>📱 WhatsApp / Celular: <a href="tel:+51974300132">974300132</a></li>
+            </ul>
+            <div class="hours">
+              <p><strong>Horario sugerido:</strong> Lunes a Sábado, previa cita.</p>
+              <p><strong>Atención:</strong> Masajes y terapias especializados.</p>
+            </div>
+          </article>
+
+          <article class="contact-card">
+            <h3>Agenda rápido</h3>
+            <p>
+              Escríbenos por WhatsApp para reservar tu sesión y recibir orientación sobre el tratamiento
+              ideal para ti.
+            </p>
+            <div class="hero-cta" style="justify-content: flex-start; margin-top: 1rem;">
+              <a class="btn btn-primary" href="https://wa.me/51974300132" target="_blank" rel="noopener noreferrer">Reservar ahora</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 KaLMA - Centro de Masajes y Terapia. Encuentra tu equilibrio, vive armonía.</p>
+  </footer>
 </body>
 </html>
