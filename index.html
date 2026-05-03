@@ -3,411 +3,162 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KaLMA | Centro de Masajes y Terapia</title>
-  <meta
-    name="description"
-    content="KaLMA Centro de Masajes y Terapia: bienestar integral con masajes antiestrés, terapéuticos y tratamientos especializados."
-  />
+  <title>Dashboard Académico | Programación Web</title>
   <style>
-    :root {
-      --kalma-cyan: #27d8dc;
-      --kalma-cyan-dark: #129ea2;
-      --kalma-pink: #ec0f9b;
-      --kalma-violet: #9a1ea8;
-      --kalma-deep: #093742;
-      --kalma-soft: #f6feff;
-      --text: #18343a;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 10% 10%, rgba(39, 216, 220, 0.15), transparent 38%),
-        radial-gradient(circle at 85% 20%, rgba(236, 15, 155, 0.16), transparent 42%),
-        linear-gradient(180deg, #ffffff 0%, #ecfdff 55%, #ffffff 100%);
-      line-height: 1.5;
-    }
-
-    .container {
-      width: min(1120px, 92%);
-      margin: 0 auto;
-    }
-
-    .hero {
-      min-height: 85vh;
-      display: grid;
-      place-items: center;
-      padding: 2.5rem 0 1rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before,
-    .hero::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      z-index: -1;
-      filter: blur(4px);
-    }
-
-    .hero::before {
-      width: 420px;
-      height: 420px;
-      background: rgba(39, 216, 220, 0.2);
-      top: -100px;
-      left: -80px;
-    }
-
-    .hero::after {
-      width: 500px;
-      height: 500px;
-      background: rgba(236, 15, 155, 0.16);
-      right: -180px;
-      bottom: -160px;
-    }
-
-    .hero-card {
-      background: rgba(255, 255, 255, 0.72);
-      border: 2px solid rgba(39, 216, 220, 0.3);
-      border-radius: 28px;
-      backdrop-filter: blur(7px);
-      box-shadow: 0 24px 50px rgba(6, 57, 65, 0.13);
-      padding: clamp(1.5rem, 3vw, 2.5rem);
-      display: grid;
-      gap: 1rem;
-      text-align: center;
-    }
-
-    .logo-badge {
-      border: 3px solid var(--kalma-cyan);
-      border-radius: 999px;
-      padding: 1.2rem 1rem;
-      width: min(580px, 100%);
-      margin-inline: auto;
-      background: linear-gradient(90deg, rgba(236, 15, 155, 0.07), rgba(39, 216, 220, 0.1));
-    }
-
-    .lotus {
-      font-size: clamp(2rem, 4vw, 3rem);
-      color: var(--kalma-violet);
-      letter-spacing: 0.2rem;
-    }
-
-    .brand {
-      font-size: clamp(2.2rem, 8vw, 5rem);
-      font-weight: 800;
-      line-height: 1;
-      letter-spacing: 0.1rem;
-      margin-top: 0.2rem;
-      background: linear-gradient(90deg, var(--kalma-pink), var(--kalma-cyan-dark));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .tag {
-      margin-top: 0.35rem;
-      color: var(--kalma-violet);
-      font-size: clamp(1.1rem, 2.5vw, 1.6rem);
-      font-weight: 700;
-    }
-
-    .slogan {
-      color: var(--kalma-cyan-dark);
-      font-size: clamp(1rem, 2vw, 1.35rem);
-      font-style: italic;
-      font-weight: 600;
-    }
-
-    .hero h1 {
-      color: var(--kalma-deep);
-      font-size: clamp(1.3rem, 3vw, 2.1rem);
-      margin-top: 0.35rem;
-    }
-
-    .hero p {
-      max-width: 70ch;
-      margin-inline: auto;
-      font-size: 1.03rem;
-    }
-
-    .hero-cta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.9rem;
-      justify-content: center;
-      margin-top: 0.7rem;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.85rem 1.35rem;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 700;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      min-width: 190px;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.15);
-    }
-
-    .btn-primary {
-      color: #fff;
-      background: linear-gradient(90deg, var(--kalma-pink), #ff57b9);
-    }
-
-    .btn-secondary {
-      color: #003b45;
-      background: linear-gradient(90deg, #a7f8fa, #66f2f6);
-    }
-
-    section {
-      padding: 4.5rem 0;
-    }
-
-    .section-title {
-      font-size: clamp(1.7rem, 4vw, 2.8rem);
-      color: var(--kalma-deep);
-      margin-bottom: 0.6rem;
-      text-align: center;
-    }
-
-    .section-subtitle {
-      text-align: center;
-      max-width: 760px;
-      margin: 0 auto 2rem;
-      color: #35545a;
-    }
-
-    .services-wrap {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 1.3rem;
-      align-items: stretch;
-    }
-
-    .panel {
-      background: #ffffff;
-      border: 1px solid #d5f7f8;
-      border-radius: 22px;
-      box-shadow: 0 14px 26px rgba(5, 59, 66, 0.08);
-      padding: 1.2rem 1.2rem 1.3rem;
-    }
-
-    .service-list {
-      list-style: none;
-      display: grid;
-      gap: 0.7rem;
-      margin-top: 0.6rem;
-    }
-
-    .service-list li {
-      background: var(--kalma-soft);
-      border-left: 6px solid var(--kalma-cyan);
-      border-radius: 12px;
-      padding: 0.75rem 0.9rem;
-      font-weight: 600;
-      color: #113c44;
-    }
-
-    .highlights {
-      display: grid;
-      gap: 0.9rem;
-    }
-
-    .highlight-card {
-      border-radius: 14px;
-      padding: 0.95rem;
-      color: #fff;
-      background: linear-gradient(135deg, var(--kalma-cyan-dark), var(--kalma-cyan));
-    }
-
-    .highlight-card h3 {
-      font-size: 1rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .highlight-card p {
-      font-size: 0.94rem;
-      opacity: 0.95;
-    }
-
-    .contact {
-      background: linear-gradient(135deg, rgba(39, 216, 220, 0.08), rgba(236, 15, 155, 0.1));
-      border-top: 2px solid rgba(39, 216, 220, 0.35);
-      border-bottom: 2px solid rgba(236, 15, 155, 0.25);
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.2rem;
-    }
-
-    .contact-card {
-      background: #fff;
-      border-radius: 20px;
-      padding: 1.4rem;
-      box-shadow: 0 14px 30px rgba(17, 65, 72, 0.1);
-    }
-
-    .contact-card h3 {
-      color: var(--kalma-violet);
-      margin-bottom: 0.6rem;
-    }
-
-    .info-list {
-      list-style: none;
-      display: grid;
-      gap: 0.55rem;
-      font-weight: 600;
-    }
-
-    .hours {
-      display: grid;
-      gap: 0.5rem;
-      margin-top: 0.8rem;
-      font-size: 0.95rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1.1rem;
-      color: #4a6d74;
-      font-size: 0.92rem;
-    }
-
-    @media (max-width: 900px) {
-      .services-wrap,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        padding: 3.4rem 0;
-      }
-    }
+    :root{--bg:#091126;--panel:#101a34;--panel2:#15234a;--line:#2b3a68;--text:#edf3ff;--muted:#9eb2d9;--ok:#22c55e;--warn:#f59e0b;--bad:#ef4444;--a:#38bdf8}
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,Segoe UI,system-ui;background:linear-gradient(180deg,#0b1631,#091126);color:var(--text)}
+    .wrap{width:min(1440px,95%);margin:16px auto 24px}
+    .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px}
+    .top{display:grid;grid-template-columns:1.2fr 1fr;gap:12px}.muted{color:var(--muted);font-size:.9rem}
+    .ctrl{display:grid;gap:8px} input,select,button{background:var(--panel2);color:var(--text);border:1px solid #35508d;border-radius:9px;padding:.55rem .65rem}
+    button{cursor:pointer;background:linear-gradient(90deg,#0ea5e9,#38bdf8);color:#02122a;border:0;font-weight:700}
+    .row{display:grid;grid-template-columns:repeat(12,1fr);gap:10px}.kpi{grid-column:span 2}.s4{grid-column:span 4}.s6{grid-column:span 6}.s8{grid-column:span 8}.s12{grid-column:span 12}
+    .v{font-size:1.4rem;font-weight:800}.ok{color:var(--ok)}.bad{color:var(--bad)}
+    .status{padding:.45rem .65rem;border-radius:8px;background:#0e1a36;border:1px solid #27406d;font-size:.86rem}
+    .table{max-height:360px;overflow:auto;border-radius:10px} table{width:100%;border-collapse:collapse;font-size:.86rem} th,td{padding:.4rem;border-bottom:1px solid #2d3f6a;text-align:left} th{position:sticky;top:0;background:#152444}
+    canvas{width:100%;height:260px;background:#0f1a35;border-radius:10px}
+    .chips{display:flex;gap:8px;flex-wrap:wrap}.chip{font-size:.8rem;padding:.2rem .5rem;border-radius:999px;background:#192a51;border:1px solid #2f4b83}
+    @media(max-width:1100px){.top{grid-template-columns:1fr}.kpi{grid-column:span 6}.s4,.s6,.s8{grid-column:span 12}}
   </style>
 </head>
 <body>
-  <header class="hero">
-    <div class="container hero-card">
-      <div class="logo-badge" aria-label="Logo de KaLMA">
-        <p class="lotus">✿</p>
-        <p class="brand">KaLMA</p>
-        <p class="tag">Centro de Masajes y Terapia</p>
-        <p class="slogan">Encuentra tu equilibrio, vive armonía.</p>
+<div class="wrap">
+  <section class="top">
+    <article class="card">
+      <h1 style="margin:.1rem 0 .4rem">Dashboard de Notas · Programación Web</h1>
+      <p class="muted">Universidad Tecnológica de los Andes · Escuela Profesional de Ingeniería de Sistemas</p>
+      <div class="chips">
+        <span class="chip">Carga desde CSV</span><span class="chip">Filtros por estado y búsqueda</span><span class="chip">KPIs + gráficos</span>
       </div>
-      <h1>Bienestar profundo, alivio real y renovación total para tu cuerpo y mente.</h1>
-      <p>
-        En KaLMA combinamos técnicas terapéuticas profesionales con una experiencia sensorial
-        relajante para que recuperes energía, reduzcas el estrés y mejores tu calidad de vida.
-      </p>
-      <div class="hero-cta">
-        <a class="btn btn-primary" href="#servicios">Ver servicios</a>
-        <a class="btn btn-secondary" href="https://wa.me/51974300132" target="_blank" rel="noopener noreferrer">Reservar por WhatsApp</a>
+    </article>
+    <article class="card ctrl">
+      <label class="muted" for="csvUrl">URL CSV pública (Google Sheets export)</label>
+      <input id="csvUrl" value="https://docs.google.com/spreadsheets/d/1_UquluCxPCrIq7LIPOrzuLFUSSRQcXIX7ffXprvLDQ8/export?format=csv" />
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px">
+        <select id="estado"><option value="todos">Todos</option><option value="aprobado">Aprobados</option><option value="desaprobado">Desaprobados</option></select>
+        <select id="orden"><option value="desc">Nota ↓</option><option value="asc">Nota ↑</option><option value="nombre">Nombre A-Z</option></select>
+        <input id="buscar" placeholder="Buscar estudiante" />
+        <button id="loadBtn">Cargar</button>
       </div>
-    </div>
-  </header>
+      <div id="status" class="status">Listo para cargar datos.</div>
+      <div id="lastUpdate" class="muted">Última actualización: -</div>
+    </article>
+  </section>
 
-  <main>
-    <section id="servicios" class="container">
-      <h2 class="section-title">Nuestros Servicios</h2>
-      <p class="section-subtitle">
-        Tratamientos diseñados para aliviar tensiones, mejorar la movilidad y ayudarte a recuperar tu
-        equilibrio físico y emocional.
-      </p>
+  <section class="row" style="margin-top:12px">
+    <article class="card kpi"><div class="muted">Total</div><div id="kTotal" class="v">0</div></article>
+    <article class="card kpi"><div class="muted">Promedio</div><div id="kProm" class="v">0.00</div></article>
+    <article class="card kpi"><div class="muted">Mediana</div><div id="kMed" class="v">0.00</div></article>
+    <article class="card kpi"><div class="muted">Máxima</div><div id="kMax" class="v">0.00</div></article>
+    <article class="card kpi"><div class="muted">Aprobados</div><div id="kApr" class="v ok">0%</div></article>
+    <article class="card kpi"><div class="muted">Desaprobados</div><div id="kDes" class="v bad">0%</div></article>
 
-      <div class="services-wrap">
-        <article class="panel">
-          <ul class="service-list">
-            <li>Masaje Antiestrés</li>
-            <li>Masaje Relajante</li>
-            <li>Masaje Descontracturante</li>
-            <li>Masaje Terapéutico</li>
-            <li>Drenaje Linfático Manual</li>
-            <li>Masaje Postparto</li>
-            <li>Terapia para Lesión Deportiva</li>
-            <li>Reflexología</li>
-            <li>Masaje Facial</li>
-            <li>Masajes de Lumbalgia y Dorsal</li>
-            <li>Masajes de Cervical y Escoliosis</li>
-            <li>Terapia con Compresas Calientes y Frías</li>
-            <li>Terapia de Parálisis Facial</li>
-            <li>Terapia de Artrosis</li>
-          </ul>
-        </article>
+    <article class="card s4"><h3>Rangos de nota</h3><canvas id="bar"></canvas></article>
+    <article class="card s8"><h3>Top 15</h3><div class="table"><table id="top"></table></div></article>
 
-        <aside class="highlights">
-          <div class="highlight-card">
-            <h3>Atención personalizada</h3>
-            <p>Evaluamos tu necesidad para aplicar la técnica terapéutica más efectiva en cada sesión.</p>
-          </div>
-          <div class="highlight-card">
-            <h3>Ambiente armonioso</h3>
-            <p>Espacios pensados para desconectarte, relajarte y sentir bienestar desde que llegas.</p>
-          </div>
-          <div class="highlight-card">
-            <h3>Terapias integrales</h3>
-            <p>Combinamos alivio muscular, recuperación física y relajación profunda en una experiencia única.</p>
-          </div>
-        </aside>
-      </div>
-    </section>
+    <article class="card s6"><h3>Aprobados vs Desaprobados</h3><canvas id="donut"></canvas></article>
+    <article class="card s6"><h3>Detalle completo</h3><div class="table"><table id="full"></table></div></article>
+  </section>
+</div>
 
-    <section class="contact" id="contacto">
-      <div class="container">
-        <h2 class="section-title">Reserva tu cita</h2>
-        <p class="section-subtitle">Estamos listos para ayudarte a sentirte mejor hoy mismo.</p>
+<script>
+const ST={headers:[],rows:[],nota:-1,nombre:0};
+const $=id=>document.getElementById(id);
 
-        <div class="contact-grid">
-          <article class="contact-card">
-            <h3>Información de contacto</h3>
-            <ul class="info-list">
-              <li>📍 Av. Venezuela, segundo piso Galería Comercial 20 de Abril</li>
-              <li>📌 Referencia: frente al Mercado Las Américas</li>
-              <li>📱 WhatsApp / Celular: <a href="tel:+51974300132">974300132</a></li>
-            </ul>
-            <div class="hours">
-              <p><strong>Horario sugerido:</strong> Lunes a Sábado, previa cita.</p>
-              <p><strong>Atención:</strong> Masajes y terapias especializados.</p>
-            </div>
-          </article>
+const setStatus=(msg,type='info')=>{const s=$("status");s.textContent=msg;s.style.borderColor=type==='error'?'#7f1d1d':type==='warn'?'#92400e':'#27406d';s.style.background=type==='error'?'#2b1111':type==='warn'?'#2a1f0d':'#0e1a36';};
+const nowText=()=>new Date().toLocaleString('es-PE',{dateStyle:'medium',timeStyle:'short'});
 
-          <article class="contact-card">
-            <h3>Agenda rápido</h3>
-            <p>
-              Escríbenos por WhatsApp para reservar tu sesión y recibir orientación sobre el tratamiento
-              ideal para ti.
-            </p>
-            <div class="hero-cta" style="justify-content: flex-start; margin-top: 1rem;">
-              <a class="btn btn-primary" href="https://wa.me/51974300132" target="_blank" rel="noopener noreferrer">Reservar ahora</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-  </main>
+function normalizeUrl(raw){
+  const u=raw.trim();
+  if(/docs.google.com\/spreadsheets\/d\//.test(u) && !/export\?format=csv/.test(u)){
+    const id=(u.match(/\/d\/([a-zA-Z0-9-_]+)/)||[])[1];
+    if(id) return `https://docs.google.com/spreadsheets/d/${id}/export?format=csv`;
+  }
+  return u;
+}
 
-  <footer>
-    <p>© 2026 KaLMA - Centro de Masajes y Terapia. Encuentra tu equilibrio, vive armonía.</p>
-  </footer>
+function parseCSV(text){
+  const rows=[];let row=[],cell='',q=false;
+  for(let i=0;i<text.length;i++){
+    const ch=text[i],nx=text[i+1];
+    if(ch==='"'){ if(q&&nx==='"'){cell+='"';i++;} else q=!q; }
+    else if(ch===','&&!q){ row.push(cell.trim()); cell=''; }
+    else if((ch==='\n'||ch==='\r')&&!q){ if(ch==='\r'&&nx==='\n') i++; row.push(cell.trim()); if(row.some(v=>v!=='')) rows.push(row); row=[]; cell=''; }
+    else cell+=ch;
+  }
+  if(cell.length||row.length){row.push(cell.trim()); if(row.some(v=>v!=='')) rows.push(row);}
+  return rows;
+}
+
+function detectCols(headers){
+  const h=headers.map(x=>x.toLowerCase());
+  ST.nota=h.findIndex(v=>/(nota final|calificación final|calificacion final|final|nota)/.test(v));
+  ST.nombre=h.findIndex(v=>/(nombre completo|estudiante|nombre|apellidos y nombres)/.test(v));
+  if(ST.nota<0) ST.nota=headers.length-1;
+  if(ST.nombre<0) ST.nombre=0;
+}
+const toNum=v=>{const n=Number(String(v??'').replace(',','.').replace(/[^\d.-]/g,''));return Number.isFinite(n)?n:null;};
+const median=a=>{if(!a.length)return 0;const b=[...a].sort((x,y)=>x-y),m=Math.floor(b.length/2);return b.length%2?b[m]:(b[m-1]+b[m])/2;};
+
+function getRows(){
+  const f=$("estado").value,q=$("buscar").value.trim().toLowerCase(),o=$("orden").value;
+  let rows=ST.rows.map(r=>({...r,nota:toNum(r[ST.nota])})).filter(r=>r.nota!==null);
+  if(f==='aprobado') rows=rows.filter(r=>r.nota>=11);
+  if(f==='desaprobado') rows=rows.filter(r=>r.nota<11);
+  if(q) rows=rows.filter(r=>String(r[ST.nombre]||'').toLowerCase().includes(q));
+  if(o==='desc') rows.sort((a,b)=>b.nota-a.nota);
+  if(o==='asc') rows.sort((a,b)=>a.nota-b.nota);
+  if(o==='nombre') rows.sort((a,b)=>String(a[ST.nombre]||'').localeCompare(String(b[ST.nombre]||''),'es'));
+  return rows;
+}
+
+function drawBars(notas){
+  const c=$("bar"),ctx=c.getContext('2d'),W=c.clientWidth,H=260,dpr=window.devicePixelRatio||1;c.width=W*dpr;c.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,W,H);
+  const bins=[['0-10.99',0,10.99,'#ef4444'],['11-13.99',11,13.99,'#f59e0b'],['14-17.99',14,17.99,'#38bdf8'],['18-20',18,20,'#22c55e']];
+  const vals=bins.map(([,a,b])=>notas.filter(n=>n>=a&&n<=b).length),max=Math.max(...vals,1); const barW=(W-70)/4-18;
+  vals.forEach((v,i)=>{const x=30+i*(barW+18),h=(v/max)*(H-90),y=H-42-h;ctx.fillStyle=bins[i][3];ctx.fillRect(x,y,barW,h);ctx.fillStyle='#dbe8ff';ctx.font='12px Segoe UI';ctx.fillText(String(v),x+barW/2-6,H-48);ctx.fillText(bins[i][0],x,H-20)});
+}
+
+function drawDonut(apr,des){
+  const c=$("donut"),ctx=c.getContext('2d'),W=c.clientWidth,H=260,dpr=window.devicePixelRatio||1;c.width=W*dpr;c.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,W,H);
+  const total=apr+des||1,a=(apr/total)*Math.PI*2,cx=W/2,cy=H/2,r=80;ctx.lineWidth=36;
+  ctx.beginPath();ctx.strokeStyle='#22c55e';ctx.arc(cx,cy,r,-Math.PI/2,-Math.PI/2+a);ctx.stroke();
+  ctx.beginPath();ctx.strokeStyle='#ef4444';ctx.arc(cx,cy,r,-Math.PI/2+a,1.5*Math.PI);ctx.stroke();
+  ctx.fillStyle='#eef4ff';ctx.font='700 24px Segoe UI';ctx.textAlign='center';ctx.fillText(((apr/total)*100).toFixed(1)+'%',cx,cy+9);
+}
+
+function render(){
+  const rows=getRows(),notas=rows.map(r=>r.nota),total=rows.length,apr=notas.filter(n=>n>=11).length,des=total-apr,prom=notas.reduce((a,b)=>a+b,0)/(total||1);
+  $("kTotal").textContent=total;$("kProm").textContent=prom.toFixed(2);$("kMed").textContent=median(notas).toFixed(2);$("kMax").textContent=(Math.max(...notas,0)).toFixed(2);
+  $("kApr").textContent=((apr/(total||1))*100).toFixed(1)+'%';$("kDes").textContent=((des/(total||1))*100).toFixed(1)+'%';
+  drawBars(notas); drawDonut(apr,des);
+  const top=[...rows].sort((a,b)=>b.nota-a.nota).slice(0,15);
+  $("top").innerHTML=`<thead><tr><th>#</th><th>${ST.headers[ST.nombre]}</th><th>Nota</th><th>Estado</th></tr></thead><tbody>${top.map((r,i)=>`<tr><td>${i+1}</td><td>${r[ST.nombre]||'-'}</td><td>${r.nota.toFixed(2)}</td><td>${r.nota>=11?'Aprobado':'Desaprobado'}</td></tr>`).join('')}</tbody>`;
+  $("full").innerHTML=`<thead><tr>${ST.headers.map(h=>`<th>${h}</th>`).join('')}<th>Estado</th></tr></thead><tbody>${rows.map(r=>`<tr>${ST.headers.map((_,i)=>`<td>${r[i]??''}</td>`).join('')}<td>${r.nota>=11?'Aprobado':'Desaprobado'}</td></tr>`).join('')}</tbody>`;
+}
+
+async function loadData(){
+  try{
+    setStatus('Cargando CSV...');
+    const url=normalizeUrl($("csvUrl").value);
+    $("csvUrl").value=url;
+    const res=await fetch(url);
+    if(!res.ok) throw new Error(`HTTP ${res.status}`);
+    const text=await res.text();
+    const [headers,...rows]=parseCSV(text);
+    if(!headers||headers.length<2) throw new Error('CSV inválido: faltan columnas.');
+    ST.headers=headers; ST.rows=rows.filter(r=>r.some(Boolean)); detectCols(headers);
+    render();
+    setStatus(`Datos cargados correctamente (${ST.rows.length} filas).`,'info');
+    $("lastUpdate").textContent=`Última actualización: ${nowText()}`;
+  }catch(err){
+    setStatus(`Error al cargar: ${err.message}`,'error');
+  }
+}
+
+$("loadBtn").addEventListener('click',loadData);$("estado").addEventListener('change',render);$("orden").addEventListener('change',render);$("buscar").addEventListener('input',render);
+window.addEventListener('resize',()=>ST.rows.length&&render());
+loadData();
+</script>
 </body>
 </html>
