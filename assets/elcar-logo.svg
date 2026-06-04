@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 820" role="img" aria-labelledby="title desc">
+  <title id="title">ELCAR SAC - Protección Integral</title>
+  <desc id="desc">Escudo premium azul oscuro y dorado para empresa de seguridad privada.</desc>
+  <defs>
+    <linearGradient id="gold" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f8df8a"/>
+      <stop offset="0.42" stop-color="#d7a932"/>
+      <stop offset="1" stop-color="#8d6716"/>
+    </linearGradient>
+    <linearGradient id="navy" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0f223a"/>
+      <stop offset="1" stop-color="#050b14"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="20" stdDeviation="16" flood-color="#000" flood-opacity=".38"/>
+    </filter>
+  </defs>
+  <rect width="820" height="820" fill="#05080d"/>
+  <path d="M410 46C539 60 653 98 742 161v214c0 199-129 337-332 397C207 712 78 574 78 375V161C167 98 281 60 410 46Z" fill="url(#navy)" stroke="url(#gold)" stroke-width="28" filter="url(#shadow)"/>
+  <path d="M410 94c107 10 201 42 276 92v187c0 161-100 273-276 328C234 646 134 534 134 373V186c75-50 169-82 276-92Z" fill="none" stroke="url(#gold)" stroke-width="8" opacity=".85"/>
+  <circle cx="250" cy="286" r="28" fill="url(#gold)"/>
+  <circle cx="570" cy="286" r="28" fill="url(#gold)"/>
+  <path d="M259 245c33-86 102-134 151-134s118 48 151 134c-26-21-58-30-96-24-17-33-36-48-55-48s-38 15-55 48c-38-6-70 3-96 24Z" fill="url(#gold)"/>
+  <path d="M264 350c42-78 89-116 146-116s104 38 146 116c-23 76-71 118-146 118s-123-42-146-118Z" fill="url(#gold)"/>
+  <path d="M339 336c27-30 47-30 74 0M407 336c27-30 47-30 74 0" fill="none" stroke="#05080d" stroke-width="18" stroke-linecap="round"/>
+  <path d="M410 365l35 34-35 28-35-28 35-34Z" fill="#05080d"/>
+  <path d="M351 458c34 27 84 27 118 0" fill="none" stroke="#05080d" stroke-width="13" stroke-linecap="round"/>
+  <path d="M192 535h436l-38 92H230l-38-92Z" fill="#05080d" stroke="url(#gold)" stroke-width="11"/>
+  <text x="410" y="603" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-size="90" letter-spacing="8" fill="url(#gold)">ELCAR</text>
+  <text x="410" y="665" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="30" letter-spacing="9" fill="url(#gold)">PROTECCIÓN INTEGRAL</text>
+  <path d="M286 705c44 28 86 42 124 51 38-9 80-23 124-51-30 47-72 79-124 98-52-19-94-51-124-98Z" fill="url(#gold)" opacity=".95"/>
+  <rect x="385" y="690" width="50" height="58" rx="8" fill="#05080d" stroke="url(#gold)" stroke-width="8"/>
+  <path d="M396 690v-19c0-17 11-29 14-29s14 12 14 29v19" fill="none" stroke="url(#gold)" stroke-width="8"/>
+</svg>
